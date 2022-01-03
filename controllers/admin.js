@@ -29,8 +29,8 @@ Router.post("/post", async (req, res) => {
  * access:public
  */
 Router.get("/get", async (req, res) => {
-  await Product.findAll()
-    .then((product) => {
+  await Product.findAll().
+  then((product) => {
       return res.status(200).json({ product });
     })
     .catch((error) => {
@@ -66,7 +66,7 @@ Router.get("/get/:id", async (req, res) => {
  */
 
 Router.get("/get_title", async (req, res) => {
-  await Product.findAll({ where: { title: "vijay" } })
+  await Product.findAll({ where: { title: "ajith" }})
     .then((product) => {
       //console.log(product);
       return res.status(200).json({ product });
