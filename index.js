@@ -13,11 +13,25 @@ const app = express();
 
 //controllers module
 import controllers from "./controllers/product.js";
+import user from "./controllers/user.js";
+
+
 
 app.use(express.json()); 
 
+// finding the user for auth =========================================================>
+app.use((req, res, next) => {
+  User.findByPk(1)
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+});
+
 //controllers
 app.use('/product', controllers);
+app.use('/user',user);
 
 
 // RELATION SHIP 1 TO MANY
@@ -29,9 +43,20 @@ Cart.belongsToMany(Product,{through:CartItem});
 Product.belongsToMany(Cart,{through:CartItem});
 
 sequelize
+  // .sync({ force: true })
   .sync()
-  //.sync({force:true})
   .then(result => {
+    return User.findByPk(1);
+    // console.log(result);
+  })
+  .then(user => {
+    if (!user) {
+      return User.create({ name: 'Max', email: 'test@test.com' });
+    }
+    return user;
+  })
+  .then(user => {
+    // console.log(user);
     app.listen(3000);
   })
   .catch(err => {
