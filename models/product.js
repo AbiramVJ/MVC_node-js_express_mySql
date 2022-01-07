@@ -27,4 +27,6 @@ const Product = sequelize.define('product', {
 });
 
 
+
+
 export default Product;

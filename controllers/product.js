@@ -5,7 +5,7 @@ const Router = express.Router();
 import Product from "../models/product.js";
 
 /**
- * router:http://localhost:3000/admin/post
+ * router:http://localhost:3000/product/post
  * method:POST
  * parameter:none
  * description:post the new product
@@ -22,7 +22,7 @@ Router.post("/post", async (req, res) => {
 });
 
 /**
- * router:http://localhost:3000/admin/get
+ * router:http://localhost:3000/product/get
  * method:GET
  * parameter:none
  * description:get the all product
@@ -39,7 +39,7 @@ Router.get("/get", async (req, res) => {
 });
 
 /**
- * router:http://localhost:3000/admin/get/:id
+ * router:http://localhost:3000/product/get/:id
  * method:GET
  * parameter:id
  * description:get the product according to id
@@ -58,7 +58,7 @@ Router.get("/get/:id", async (req, res) => {
 });
 
 /**
- * router:http://localhost:3000/admin/get/title
+ * router:http://localhost:3000/product/get/title
  * method:GET
  * parameter:none
  * description:get the product according to titles
@@ -77,7 +77,7 @@ Router.get("/get_title", async (req, res) => {
 });
 
 /**
- * router:http://localhost:3000/admin/update
+ * router:http://localhost:3000/product/update
  * method:PUT
  * parameter:none
  * description:update the product according to id
@@ -104,7 +104,7 @@ Router.put("/update/:id", async (req, res) => {
 });
 
 /**
- * router:http://localhost:3000/admin/delete/:id
+ * router:http://localhost:3000/product/delete/:id
  * method:GET
  * parameter:id
  * description:delete  the product according to id
