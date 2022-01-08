@@ -130,23 +130,4 @@ Router.delete("/delete/:id",async(req,res)=>{
 })
 
 
-//Authentication routes =====================================================================================================================
-
-/**
- * router:http://localhost:3000/product/user/post
- * method:POST
- * parameter:userId as forging key
- * description:post the new product
- * access:private
- */
-
-Router.post("/user/post", async (req, res) => {
-  try {
-    const newProduct = await req.user.createProduct(req.body);
-    res.json({ data: newProduct });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-});
-
 export default Router;

@@ -21,7 +21,7 @@ app.use(express.json());
 
 // finding the user for auth =========================================================>
 app.use((req, res, next) => {
-  User.findByPk(1)
+  User.findByPk(2)
     .then(user => {
       req.user = user;
       next();
@@ -46,12 +46,12 @@ sequelize
   // .sync({ force: true })
   .sync()
   .then(result => {
-    return User.findByPk(1);
+    return User.findByPk(2);
     // console.log(result);
   })
   .then(user => {
     if (!user) {
-      return User.create({ name: 'Max', email: 'test@test.com' });
+      return User.create({ name: 'jude', email: 'jude52@gmail.com' });
     }
     return user;
   })
